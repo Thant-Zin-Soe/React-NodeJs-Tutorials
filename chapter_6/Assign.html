@@ -1,0 +1,32 @@
+<html>
+    <script>
+        let parent={
+            x: 200,
+            y:500,
+        };
+
+       let obj={
+            x:100,
+            z:300,
+       };
+
+       let child=Object.assign(obj,parent);// data are assing and over write fro right to left..thats why x value is 200...and 100 is disspaaear
+       console.log('child=',child);
+
+
+         plugin=(parameter)=>{
+            defaultConfig={
+                color:'blue',
+                width:'200px',
+                heighgt:"80px",
+
+            };
+
+            return Object.assign(defaultConfig,parameter);
+       }
+
+       console.log(plugin({
+        color:'red',
+       }));
+    </script>
+</html>

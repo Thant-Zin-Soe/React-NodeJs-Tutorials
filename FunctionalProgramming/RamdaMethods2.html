@@ -1,0 +1,25 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+        let arr=[1,2,3,4,5];
+        console.log("Head =",R.head(arr));
+        console.log("Tail =",R.tail(arr));
+       
+        const sum = (arr)=>R.length(arr)==1 ? R.prop(0)(arr) : R.head(arr)+sum(R.tail(arr));
+        console.log("Sum = ",sum(arr));
+
+        /*
+         let arr=[1,2,3,4,5];
+
+         head +sum(tail)
+         1+ sum([2,3,4,5])
+            2+sum([3,4,5])
+                3+sum([4,5])
+                    4+sum([5])
+                        5
+        */
+
+        //nrecursive can happpen stack over flow
+    </script>
+</html>

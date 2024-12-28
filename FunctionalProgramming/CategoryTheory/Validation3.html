@@ -1,0 +1,151 @@
+<html></html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+        //left => failure
+        //right-> success
+             const Left=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Left.of(value);
+                },
+               
+                matchWith(context){
+                    return context.left(value);
+                },
+                
+                isLeft(){
+                    return true;
+                },
+
+                and(other){
+                    return other.isLeft() ? Left.of([...value, ...other.value]) : this;
+                }
+            })
+
+
+        Left.of=Left;
+
+       
+        const Right=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Right.of(fn(value));
+                },
+               
+                matchWith(context){
+                    return context.right(value);
+                },
+
+                    
+                isLeft(){
+                    return false;
+
+                },
+
+                and(other){
+                    return other.isLeft() ? other: this;
+                }
+            })
+
+
+            
+            //Left.and(Right)=Left
+            //Left.and(Left)=Left  because Left is error (faluier case)
+
+        Right.of=Right;
+            
+        let obj={
+            name :'TZS',
+            email: 'tzs@gmail.com',
+            age: 24,
+
+        }
+
+        // input value(main value) should be the last
+
+        const minLength =(len)=>(input)=>input.length >=len;
+        const maxLength =(len)=>(input)=>input.length <=len;
+
+        const minValue=(limit)=>(value)=>value>= limit;
+        const maxValue=(limit)=>(value)=>value<= limit;
+
+    
+       const validEmail=(email)=>email.includes('@');
+       
+       const nameValid=(obj)=>minLength(3)(obj.name) && maxLength(10)(obj.name);
+       const ageValid=(obj)=>minValue(10)(obj.age) && maxValue(100)(obj.age);
+       const emailValid=(obj)=>validEmail(obj.email);
+        
+        const validatorV2=(validator)=>(errorMessage)=>obj=>validator(obj)? Right.of(obj):Left.of([errorMessage]);
+        const nameValidV2=validatorV2(nameValid)("Invalid name");
+        const ageValidV2=validatorV2(ageValid)("Invalid age");
+        const emailValidV2=validatorV2(emailValid)("Invalid email");
+
+        // const nameValidV2=(errorMessage)=>(obj)=>nameValid(obj) ? Right.of(obj):Left.of(errorMessage);
+        // console.log("Name valid v2 ",nameValidV2("Invalid name")({
+        //     name: 'TZ'
+        // }));
+
+       /* console.log("Name valid v2 ",nameValidV2({
+            name: 'TZS'
+        }));
+
+        console.log("Age valid v2 ",ageValidV2({
+            age: -20// error here
+        }));
+
+        */
+
+        function and(...validators){
+            return function(obj){
+                return validators.reduce((input,validator)=>input.and(validator(obj)), Right.of(obj));
+            }
+        }
+
+
+            // Left.of(['Error 1'])
+            //     .and(Left.of(["Error 2"]))
+            //     .matchWith({
+            //         left:(error)=>console.error("Validation error", error),
+            //         right:(data)=>console.log("Data",data)
+            //     })
+        
+            // Left.of(["Error 1"])
+            // .and(Right.of(obj))
+            // .matchWith({
+            //     left:(error)=>console.error("Validation error", error),
+            //     right:(data)=>console.log("Data",data)
+            // })
+
+            
+            // Right.of(obj)
+            // .and(Right.of(obj))
+            // .matchWith({
+            //     left:(error)=>console.error("Validation error", error),
+            //     right:(data)=>console.log("Data",data)
+            // })
+
+            // Right.of(obj)
+            // .and(Left.of(["Error 1"]))
+            // .matchWith({
+            //     left:(error)=>console.error("Validation error", error),
+            //     right:(data)=>console.log("Data",data)
+            // })
+
+
+            //it is 2 error namd and email are no valid
+        const andRule=and(nameValidV2,emailValidV2);
+        andRule({
+            name: "Tz",
+            email:"me@gmail.com" 
+        }).matchWith({
+                left:(error)=>console.error("Validation error", error),
+                right:(data)=>console.log("Data",data)
+            })
+        
+
+    </script>
+</html>

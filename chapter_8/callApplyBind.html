@@ -1,0 +1,38 @@
+<html>
+    <script>
+        let obj={
+            name:"TZS",
+             display(msg){
+                console.log("Message=",msg, " Name=", this.name);
+            }
+        }
+
+        obj.display("hello there");
+
+        let method=obj.display;
+        let obj2={
+            name:"Someone",// nthis value goes to (this.value) means goes to obj.name 
+        }
+        
+        method.call(obj2,"Hi from .call method");
+        method.apply(obj2,["hi from .apply method"]);
+
+
+
+        //we use these applly and call  methods when this.valu is missing and cannot call form the others
+
+
+        let arr=[1,5,12,3,-2,0,-5,6];
+       // console.log("Math.mim()=",Math.min(arr));// that gonna be grror and output= NAN we can use applu and call as follow when we try to 
+        // to find min value inthe array because Math.min cannot accept array value
+
+        console.log("Math.mim()=",Math.min.apply(null,arr));// this is the usecase!
+
+
+        // this it he use of (bind)
+
+        let method2=obj.display.bind(obj2);// obj will use the obj2 ok?
+        method2("Hello from method 2 bind");
+        // we use these three whent we assign object values disapppeear  we can use these three
+    </script>
+</html>

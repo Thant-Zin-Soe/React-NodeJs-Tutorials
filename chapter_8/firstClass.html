@@ -1,0 +1,29 @@
+<html>
+    <script>
+        function greet(){
+            console.log("Hello");
+        }
+
+        let fun=greet;//Rule 1
+
+        //Rule 2
+        fun();
+        function acceptAnotherFunction(smth){
+            console.log("Accept another function");
+            fun();
+        }
+
+        
+        acceptAnotherFunction(fun)// accept another function ..these are three rules 
+
+        //Rule 3
+
+        function disk(){
+            return greet;//only retuen greet not function retuen
+        }
+        disk()();
+
+
+        // these are need to be First Class
+    </script>
+</html>

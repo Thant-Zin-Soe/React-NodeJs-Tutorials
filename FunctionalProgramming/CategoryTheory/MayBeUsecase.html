@@ -1,0 +1,73 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+          function appendHi(str){
+            return str.concat(' hi');
+        }
+
+    function toUpper(str){
+        return str.toUpperCase();
+    }
+
+
+            const MayBe=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return this.isNothing() ? MayBe.of(null): MayBe.of(fn(value));
+                },
+                isNothing:()=>value===undefined || value ===null,
+                orElse(defaultvalue){
+                    return this.isNothing() ? defaultvalue : value
+                }
+            })
+        MayBe.of=MayBe;
+
+
+        let employee={
+            1:{
+                name: "Emp1",
+            },
+
+            2:{
+                name: 'Emp2',
+                supervisor:1,
+            },
+
+            3:{
+                name: "Emp3",
+                supervisor:2,
+            }
+        }
+
+        function getSupervisorName(empId){
+            let emp=employee[empId];
+            if(emp){
+                let supervisorId=emp.supervisor;
+                if(supervisorId){
+                    let supervisor=employee[supervisorId];
+                    if(supervisor){
+                        return supervisor.name;
+                    }
+                }
+            }
+        }
+        // too many if 
+
+        function getSupervisorNameVersion2(empId){
+            return MayBe.of(empId)
+                .map(empId=>employee[empId])
+                .map(employee=>employee.supervisor)
+                .map(supervisorId=>employee[supervisorId])
+                .map(supervisor=>supervisor.name);
+        }
+
+       console.log("Sup 3",getSupervisorName(3));
+       console.log("Sup 1",getSupervisorName(1));
+
+        console.log("Sup 3",getSupervisorNameVersion2(3));
+        console.log("Sup 1",getSupervisorNameVersion2(1));
+
+    </script>
+</html>

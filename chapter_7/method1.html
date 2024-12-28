@@ -1,0 +1,16 @@
+<html>
+    <script>
+        let arr=[10,20,30,40,50];
+        let total=0;
+        arr.forEach((value,index,array)=>{
+            console.log("Value=",value,' Index=',index,' Array=',array);
+            arr[index]=value*2;
+                total+=value;
+        });
+        console.log("Array=",arr);
+        console.log("Total is =",total);
+        let strArray=['apple','orange','banana'];
+        let strArray2=strArray.map(str=>str.toUpperCase());
+        console.log('strArray2=',strArray2);
+    </script>
+</html>

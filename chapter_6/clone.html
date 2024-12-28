@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let obj={
+            x:100,
+            y:200,
+            items:[100,200],//
+        };
+        // shallow clone (if there include non-premitive types-> '...' only clone premitive types-> x and y are premitive types 
+       //  items  is not clone  because items is object []  ) 
+        let obj1={... obj};
+        obj.x++;
+        console.log('obj.x=',obj.x);
+        console.log('obj1.x=',obj1.x);
+
+        obj.items.push(300);
+        console.log('obj.items=',obj.items);// No.1
+        console.log('obj1.items=',obj1.items);// and this out put is same as No.1 out put 
+        console.log('type of items=',typeof(obj.items));
+
+        // if we want to 'deep clone' can do as follow
+
+        let obj2=JSON.parse(JSON.stringify(obj1));
+        obj1.items.push(300);
+        console.log('obj2=',obj2.items);
+        
+    </script>
+</html>

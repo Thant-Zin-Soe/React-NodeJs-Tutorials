@@ -1,0 +1,32 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+        let arr=[10,20];
+        let arr2=arr.map(x=>x+3);
+        console.log("Arr 2 =",arr2);
+        console.log("Arr = ",arr);// arr remain the same value
+
+        function updateCity(obj,city){
+            obj.city=city;
+        }
+
+        function updateCtiyFP(obj,city){
+            return{
+                ...obj,
+              city,
+            }
+        }
+        let obj={
+            city: "YGN"
+        };
+        let obj2=updateCityFP(obj,'Another');
+        console.log('Obj ',obj,"Obj2 ",obj2);
+
+        console.log("Prop city ",R.prop('city')(obj));//prop-> this kinda getter
+
+        let obj3=R.assoc('city', 'Somehere',obj);//assoc-> this is kinda setter
+        console.log('Obj3',obj3);
+
+    </script>
+</html>

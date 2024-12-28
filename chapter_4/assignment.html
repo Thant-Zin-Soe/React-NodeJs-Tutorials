@@ -1,0 +1,26 @@
+<html>
+    <script>
+        let a=10;
+        let b=20;
+        a=b;
+        console.log("a=",a,"b=",b);// b data remain same  not clear after assignment 
+        a++;
+        console.log("a=",a);
+
+        let obj={
+            data:100,
+        };
+
+        let obj2=obj;// reference semetic ...they indicate to the (same values or entities)  obj and obj2 the only store address to 
+                                                        //value 
+        obj.data++;
+        console.log("obj.data=", obj);
+        console.log("obj2.data=",obj2);
+
+        obj2={
+            data:200,
+        };
+        obj.data++;
+        console.log("obj2=",obj2);
+    </script>
+</html>

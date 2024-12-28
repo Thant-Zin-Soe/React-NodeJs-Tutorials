@@ -1,0 +1,17 @@
+
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+        let obj={
+            address2:{
+               city: 'ygn'
+            } 
+        };
+        console.log("Obj ",obj.address?.city);//undefine  error because thre is no address2 we can use conditional property
+        console.log("Obj path ",R.path(['address2','city'],obj));
+        //obj.address.city="Another place";
+        let obj2=R.assocPath(['address','city'],'Another place',obj);
+        console.log("Obj2 ",obj2);
+    </script>
+</html>

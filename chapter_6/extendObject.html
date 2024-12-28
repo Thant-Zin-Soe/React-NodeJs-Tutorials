@@ -1,0 +1,21 @@
+<html>
+    <script>
+        let name='TZS';
+        let address='somewhere';
+        let keyName="city";
+
+       /* let user={
+            name:name,
+            address:address,
+
+        }; */  //this is the old way of writing we can write in shothand in new way if the variables names are same
+
+        let user={
+            name,
+            address,
+            [keyName]:'Ygn',// use the "keyName's" value as the property name and assign the new value
+        };
+
+        console.log('user=',user);
+    </script>
+</html>

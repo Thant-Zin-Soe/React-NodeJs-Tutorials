@@ -1,0 +1,42 @@
+<html>
+    <script>
+        let student=[
+            {
+                name:"Mg Mg",
+                age: 24,
+                sex:"Male",
+            },
+            {
+                name:"Aung Aungg",
+                age: 30,
+                sex:"Male",
+            },
+            {
+                name:"Su Su",
+                age: 30,
+                sex:"Female",
+            },
+            {
+                name:"Aye Aye",
+                age: 18,
+                sex:"Female",
+            },
+            {
+                name:"Win Aung",
+                age: 27,
+                sex:"Male",
+            }
+        ];
+
+        let minAgeFemaleStd= student.filter(student=>student.sex==='Female').reduce((studentA,studentB)=>{
+            return studentA.age>studentB.age ? studentB:studentA;
+        });          
+        
+        console.log("Yonugest female student =",minAgeFemaleStd);
+
+        let maleStdList=student.filter(student=>student.sex==="Male").map(student=>student.name);
+        console.log("Male students list name=",maleStdList);
+
+            
+    </script>
+</html>

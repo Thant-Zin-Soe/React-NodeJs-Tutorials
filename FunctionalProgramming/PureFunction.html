@@ -1,0 +1,28 @@
+<html>
+    <script>
+        let i =0;
+        // this is not a pure function bcz it change the golbal variable value and retun the changed valued 
+        function getCounter(){
+            return i++;
+        }
+        function process(oder){
+            order.something='soimething';// change the value of the parameter(called mutaation) reference  also impure function
+        }
+
+        //pure function bcz it dont change the  original value 
+        function add(x,y){
+            return x+y;
+        }
+        
+        //puire function we got everytime we call new random value so it is impure ok?
+        function getRandom(){
+            return Math.random()*10;
+        }
+
+        //impure function
+        function getDate(){
+            return new Date();
+        }
+        // to be pure function 1/ same input same output 2/side effect ma pr ya vu  ...if not it is impure function
+    </script>
+</html>

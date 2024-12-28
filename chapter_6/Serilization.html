@@ -1,0 +1,15 @@
+<html>
+    <script>
+        let obj={
+            name:"ja Ja",
+            age:25,
+            address:'Mandalay',
+        };
+
+        let str= JSON.stringify(obj);// first change to String type 
+        let obj1=JSON.parse(str);// cnahge to object type
+
+        console.log('obj1=',obj1);
+        console.log(obj==obj1);// it became different object but same properties and values because it copy from 'obj'
+    </script>
+</html>

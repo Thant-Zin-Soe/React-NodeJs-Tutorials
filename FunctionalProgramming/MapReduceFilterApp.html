@@ -1,0 +1,39 @@
+<html>
+    <script>
+        let students=[
+            {
+            name:'Aung Aung',
+            gender:'Male',
+            age:26,
+            },
+
+            {
+            name:'Mya Mya',
+            gender:'Female',
+            age:16,
+            },
+
+            {
+            name:'Win  Win',
+            gender:'Female',
+            age:18,
+            },
+
+            {
+            name:'Thae Su',
+            gender:'Female',
+            age:14,
+            },
+    ];
+    //Requirement is = Youngest Female Name
+
+    console.log("Students List=",students);
+    
+    const isFemale=(students)=>students.gender=='Female';
+    let result=students.filter(isFemale).reduce((studentA,studentB)=>{
+        return studentA.age<studentB ? studentA:studentB
+        });
+    console.log("Youngest Female student is      = ",result);
+    console.log("Youngest Female student name is = ",result.name);
+    </script>
+</html>

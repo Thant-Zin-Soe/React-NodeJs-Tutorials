@@ -1,0 +1,24 @@
+<html>
+    <script>
+     //  let i=Math.random();// numbers between 0 and 1 
+       // if we want between 1 amd 10 we can do like this (multiply with 10 and plus 1) use "parseInt()"
+
+       let solution=parseInt(Math.random() *10+1) ;
+       //console.log("solution valu is ="+solution);
+
+       let userNum=prompt("Enter a guess number !");
+       while(userNum!=solution){
+            if(userNum>solution){
+                userNum=prompt("Sorry your number is too large !");
+            }
+            else{
+                userNum=prompt("Sorry your number is too small !");
+            }
+        
+       }
+
+       alert("You are correct the answer is="+solution);
+
+
+    </script>
+</html>

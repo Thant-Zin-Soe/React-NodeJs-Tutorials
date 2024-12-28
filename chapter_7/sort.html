@@ -1,0 +1,59 @@
+<html>
+    <script>
+        let arr=[3,2,1,100,300,121];
+        /*arr.sort();
+        console.log('Arr sortes=',arr);// this sort as the numbers to strings so the it sorted in string 
+        */
+
+        arr.sort((a,b)=>a-b);
+            console.log("Arr ascending order sorted=",arr);//assending order
+          
+        arr.sort((a,b)=>b-a);
+        console.log("Arr descending order sorted=",arr);//deassending order
+
+        let student=[
+            {
+                name:"Mg Mg",
+                age: 24,
+                sex:"Male",
+            },
+          
+            {
+                name:"Su Su",
+                age: 30,
+                sex:"Female",
+            },
+            {
+                name:"Aye Aye",
+                age: 18,
+                sex:"Female",
+            },
+            {
+                name:"Win Aung",
+                age: 27,
+                sex:"Male",
+            },
+            {
+                name:"Aung Aungg",
+                age: 30,
+                sex:"Male",
+            },
+        ];
+        
+        // student.sort((studentA,studentB)=>studentA.age-studentB.age);
+        // console.log("Student array=",student);
+
+        // is there  is same age sort with name 
+
+        student.sort((studentA,studentB)=>{
+            if(studentA.age==studentB.age){
+               return  studentA.name.localeCompare(studentB.name);
+            }
+            else{
+                return studentA.age-studentB.age;
+            }
+        });
+        console.log("Student array=",student);
+
+    </script>
+</html>

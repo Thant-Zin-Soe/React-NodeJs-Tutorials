@@ -1,0 +1,100 @@
+<html></html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+         //left => failure
+        //right-> success
+        const Left=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Left.of(value);
+                },
+
+                matchWith(context){
+                    return context.left(value);
+                }
+               
+            })
+        Left.of=Left;
+
+       
+        const Right=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Right.of(fn(value));
+                },
+
+                matchWith(context){
+                    return context.right(value);
+                }
+               
+            })
+        Right.of=Right;
+            
+
+            // Requirement is
+            /* obj{
+            name : 
+                age:
+                email:Left} */
+
+        // minLength at least 3
+
+
+        let obj={
+            name :'TZS',
+            email: 'tzs@gmail.com',
+            age: 24,
+
+        }
+
+        // input value(main value) shpule be the last
+
+        const minLength =(len)=>(input)=>input.length >=len;
+        const maxLength =(len)=>(input)=>input.length <=len;
+
+        const minValue=(limit)=>(value)=>value>= limit;
+        const maxValue=(limit)=>(value)=>value<= limit;
+
+        console.log('Minlength 3 ', minLength (3)("TZ"));
+        console.log('Minlength 3 ', minLength (3)("TZS"));
+
+        console.log('Maxlength 3 ', maxLength (3)("TZSTZS"));
+        console.log('Maxlength 3 ', maxLength (3)("TZS"));
+
+        console.log("maxValue 100 29",maxValue(100)(5));
+        console.log("maxValue 5 29",maxValue(5)(29));
+
+        console.log("minValue 5 29",minValue(5)(29));
+        console.log("minValue 5 3",minValue(5)(13));
+
+       const validEmail=(email)=>email.includes('@');
+       
+       const nameValid=(obj)=>minLength(3)(obj.name) && maxLength(10)(obj.name);
+       const ageValid=(obj)=>minValue(10)(obj.age) && maxValue(100)(obj.age);
+       const emailValid=(obj)=>validEmail(obj.email);
+
+       console.log("Valid Email ",validEmail('tzs@gmail.com')); 
+       console.log("Valid Name ",nameValid({
+        name: 'TT'
+       }));
+
+       console.log(" Name Valid ",nameValid({
+        name: 'TZS'
+       }));
+
+       console.log(" Age Valid 20 ",ageValid({
+        age: 20
+       }));
+
+       console.log(" Age Valid 210 ",ageValid({
+        age: 210
+       }));
+
+       console.log(" Email Valid   ",emailValid({
+        email: 'tzs@gmail.com'
+       }));
+    </script>
+</html>

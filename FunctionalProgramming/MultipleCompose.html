@@ -1,0 +1,40 @@
+<html></html>
+    <script>
+        function appendHi(str){
+            return str+' hi';
+        }
+
+    function toUpper(str){
+        return str.toUpperCase();
+    }
+
+    function appendHiAndTpUpper(str){
+        return toUpper(appendHi(str));
+
+    }
+
+    console.log("AppendHiAndToUpper",appendHiAndTpUpper("Hello"));
+   
+    function compose(...funs){//(funA, funB, funC)
+        return function(x){
+           //x is intial valu that means last fun in array(...funs)
+                return funs.reduceRight((input,fn)=>fn(input),x);
+            
+        }
+    }
+
+    const  newFunction=compose(toUpper,appendHi);
+    console.log("Two binding functio becae New Function is = ",newFunction("hello"));
+
+    const inc=(x)=>x+1;
+    const double=(x)=>x*2;
+    const divBy2=(x)=>x/2;
+
+   // const fun=compose(compose(divBy2,inc),double); we can write as follow for the same output
+   
+   const fun=compose(divBy2,inc,double);
+   console.log("Function of 3=",fun(3));
+
+
+</script>
+</html>

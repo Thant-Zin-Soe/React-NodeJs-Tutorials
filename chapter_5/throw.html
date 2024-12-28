@@ -1,0 +1,22 @@
+<html>
+    <script>
+        division =(a,b)=>{
+            if(isNaN(a)|| isNaN(b)){
+                throw new Error("a or b is Nan or undefine");
+            }
+            return a/b;
+        }
+       
+        try{
+            let result= division(8,NaN);
+            console.log("result =",result);
+        }
+        catch(err){
+            console.log("Errror happen", err) // err get from Error from throw
+        }
+        finally{
+            console.log("Finally usage");// it is works whether upper work codes has error or not
+        }
+        console.log("End of code !");
+    </script>
+</html>

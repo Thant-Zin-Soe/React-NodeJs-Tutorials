@@ -1,0 +1,81 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+         //left => failure
+        //right-> success
+      
+
+            // Requirement is
+            /* obj{
+            name : 
+                age:
+                email:Left} */
+
+        // minLength at least 3
+
+
+        let obj={
+            name :'TZS',
+            email: 'tzs@gmail.com',
+            age: 24,
+
+        }
+
+        // input value(main value) should be the last
+
+        const minLength =(len)=>(input)=>input.length >=len;
+        const maxLength =(len)=>(input)=>input.length <=len;
+
+        const minValue=(limit)=>(value)=>value>= limit;
+        const maxValue=(limit)=>(value)=>value<= limit;
+
+        const validEmail=(email)=>email.includes('@');
+       
+       const nameValid=(obj)=>minLength(3)(obj.name) && maxLength(10)(obj.name);
+       const ageValid=(obj)=>minValue(10)(obj.age) && maxValue(100)(obj.age);
+       const emailValid=(obj)=>validEmail(obj.email);
+
+      const And={
+        identity:()=>true,
+        binaryOp:(x,y)=>x && y,
+      }
+
+      const Or={
+        identity:()=>false,
+        binaryOp:(x,y)=>x || y,
+      }
+
+      function and(...validators){
+        return function(obj)
+        {
+          //  return validators.reduce((x,validator)=>And.binaryOp(x,validator(obj)),And.identity());
+            return validators.reduce((previousValue,validatorFn)=>previousValue && validatorFn(obj),true);
+        }
+      }
+      function or(...validators){
+        return function(obj)
+        {
+           // return validators.reduce((x,validator)=>Or.binaryOp(x,validator(obj)),Or.identity());
+            
+           return validators.reduce((previousValue,validatorFn)=>previousValue || validatorFn(obj),false);
+
+        }
+      }
+
+
+      const andRule=and(nameValid,emailValid);
+
+      console.log("And Rule ",andRule({
+        name: 'TZS',
+        email:"tzs@gmaiul.com"
+      }));
+
+      console.log("And Rule ",andRule({
+        name: 'TZ',
+        email:"tzs@gmaiul.com"
+      }))
+ 
+      //  limitaion is retunn only  false and true 
+    </script>
+</html>

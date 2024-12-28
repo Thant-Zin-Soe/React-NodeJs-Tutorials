@@ -1,0 +1,16 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+    <script>
+            const equal3=R.equals(3);
+            let arr=[3,3,3];
+            console.log("All of arr equals 3 ",R.all(equal3,arr));
+            
+            arr=[1,2,3,4,5,6];
+            const even=x=>x%2==0;
+            console.log("Even count =",R.count(even)(arr));// final input at the right hand side
+
+            console.log("Prop 0",R.prop(0)(arr));
+
+
+   </script>
+</html>

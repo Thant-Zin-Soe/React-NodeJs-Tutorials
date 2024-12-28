@@ -1,0 +1,17 @@
+<html>
+    <script>
+       let parent={
+         item:[100],
+       };
+       let obj1=Object.create(parent);
+       let obj2=Object.create(parent);
+
+       if(obj1.item==obj2.item){
+        console.log('same');
+       }
+       else{
+        console.log('No same');
+       }
+
+    </script>
+</html>

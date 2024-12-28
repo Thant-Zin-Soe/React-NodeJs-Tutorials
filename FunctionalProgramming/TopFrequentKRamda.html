@@ -1,0 +1,47 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+    <script>
+            let arr=[1,2,3,4,2,3,4,1,2,3,4,4,3,3,2,],k=2;
+
+        /*   let  group=R.countBy(R.identity)(arr);
+            console.log("Group ",group);
+            let arrGroup= R.toPairs(group);
+            console.log("To Pair ",arrGroup);
+
+            const sortByFrequency=R.sortBy(R.prop(1));
+            let sortedList=sortByFrequency(arrGroup);
+            
+            sortedList=R.reverse(sortedList);
+            console.log("SortedList by Frequency =",sortedList);
+
+            let result=R.take(k)(sortedList);
+            result= R.map((a)=>a[0],result);
+            console.log("Result =",result);
+
+        */ 
+       function log(message){
+        return function(x){
+            console.log(message,x);
+            return x;
+        }
+       }
+
+            const topKFrequent=R.pipe(
+                R.countBy(R.identity),
+                log("After countBy"),
+                R.toPairs,
+                log("After toPairs"),
+                R.sortBy(R.prop(1)),
+                log("After sortBy"),
+                R.reverse,
+                log("After reverse"),
+                R.take(k),
+                log("After take(k)"),
+                R.map((a)=>a[0]),
+                log("After map"),
+            );
+        
+            let result=topKFrequent(arr);
+            console.log("Result = ",result);
+    </script>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <script>
+        let user={
+            name:'someone',
+            address:'somewhere',
+            personlaInfo:'Not to show',
+            toJSON(){
+                console.log("Jason called!");
+                return{
+                    uerName:this.name,// we can chane the field name in this method
+                    address:this.address,
+                }
+            }
+        }
+
+        let str=JSON.stringify(user);// if we use stringify -> stringify called 'toJSON' method
+        console.log('Str=',str);
+    </script>
+</html>

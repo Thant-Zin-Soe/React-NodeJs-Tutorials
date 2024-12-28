@@ -1,0 +1,14 @@
+<html>
+    <script>
+        let arr=[1,2,3,4,5];
+        const isEven=(x)=>x%2==0;
+
+        function not(fn){
+            return function(x){
+                return !fn(x);
+            }
+        }
+        const isOdd=not(isEven);
+        console.log("Odd Nums=",arr.filter(isOdd) );
+    </script>
+</html>

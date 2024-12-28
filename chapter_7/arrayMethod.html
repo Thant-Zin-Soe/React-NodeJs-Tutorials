@@ -1,0 +1,21 @@
+<html>
+    <script>
+        let arr=[1,2,3,4,5,6,];
+        let slice=arr.slice(2,4);// start from index (start point )2 but end at 4-1(end point -1)....[slice] just copy the array and do the work
+        console.log("Arr=",arr);
+        console.log("slice=",slice);
+
+        let arr1=[1,2,3,4,5,6];
+        let splice=arr1.splice(3);
+        console.log("Arr splice=",splice);
+
+        console.log("Arr1=",arr1);// it effect to the original array .. splice remove the data 
+
+        let arr2=[1,2,3,4,5,6];
+        let splice1=arr2.splice(3,1,200,300);
+        console.log("Arr3 =",arr2);
+        let splice2=arr2.splice(1,1); // the second parameter is how many would u want to delete 
+        console.log("Arr3 2nd output=",arr2);
+
+    </script>
+</html>

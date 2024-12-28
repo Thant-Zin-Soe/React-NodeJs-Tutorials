@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let obj={
+            x: [100],
+        };
+
+        console.log('x in obj=','x' in obj);
+        console.log('y in obj=','y' in obj);
+
+        console.log('toString in obj','toString' in obj);//true because main parent 'Object' have toString();
+        console.log('hasownProperty(x)', obj.hasOwnProperty('x'));// check in current object
+        console.log('hasownProperty(toString)', obj.hasOwnProperty('toString'));// check in curren object not to main Parent('Object')
+
+        console.log('enumerable(x)', obj.propertyIsEnumerable('x'));// is the data can output with loop( for in ) or not
+        console.log('enumerable(toString)', obj.propertyIsEnumerable('toString'));// is the data can output with loop( for in ) or not
+
+    </script>
+</html>

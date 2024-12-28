@@ -1,0 +1,34 @@
+<html></html>
+    <script>
+
+
+   
+   
+    function pipe(...funs){//(funA, funB, funC)
+        return function(x){
+           //x is intial valu that means last fun in array(...funs)
+                return funs.reduce((input,fn)=>fn(input),x);
+            
+        }
+    }
+    // making one input to be fit in array
+   function add(x){
+    return function(y){
+        return x+y;
+     }
+   }
+   console.log("Add=",add(3));
+   console.log("Add=",add(3)(2));
+
+    const inc=(x)=>x+1;
+    const double=(x)=>x*2;
+    const divBy2=(x)=>x/2;
+
+   // const fun=compose(compose(divBy2,inc),double); we can write as follow for the same output
+   
+   const fun=pipe(add(3),divBy2,inc,double);
+   console.log("Function of 3=",fun(3));
+
+
+   </script>
+</html>

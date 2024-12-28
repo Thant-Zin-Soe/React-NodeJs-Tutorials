@@ -1,0 +1,32 @@
+<html>
+    <script>
+        
+        function payment(card){
+          
+                console.log("Payment",card);
+        }
+        
+        function processOrder(orderID){
+            console.log("Process Order",orderID);
+        }
+       
+        function once(fn){ //higher ordr finction bcz accept other function as parameter
+            let done=false;
+            return function(...args){
+                // return !done?(done=true,fun()) : undefined;
+                if(!done){
+                    done=true;
+                    return fn(...args);
+                }
+            }
+        }
+        payment=once(payment);
+        processOrder=once(processOrder);
+
+        payment('card1');
+        payment('card1');
+        processOrder('order1');
+        processOrder('order1');
+
+    </script>
+</html>

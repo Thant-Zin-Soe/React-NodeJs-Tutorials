@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let book1={
+        name:'Java developer Book',
+        price: 250,
+        cat:'IT',
+    };
+
+    console.log('book1.name=',book1.name);// if we know exact of property name we can use directly using '.propertyName'
+
+    let propertyName='name';
+    console.log('book1[propertyName]=',book1[propertyName]);// if we dont know exact propertyName(if the property name is dynamic we 
+                                                                    // can call using 'book1.[propertyName]'    ) AS FOLLOW 
+            for(let prop in book1){
+                console.log('Property name=',prop,'| Value =',book1[prop]);
+            }                                                   
+    </script>
+</html>

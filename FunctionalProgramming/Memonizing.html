@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function factorial(n){
+            console.log("Factprial",n);
+            let result=1;
+            for(let i=1;i<=n;i++){
+                result*=i;
+            }
+            return result;
+        }
+
+        function memonize(fn){
+            let cache={};
+            return function(n){
+                    if(cache[n]){
+                        return cache[n];      
+                          }
+                
+                    else{
+                    cache[n]=fn(n);
+                    return cache[n];
+                }
+            }
+        }
+        const memonizeFactorial=memonize(factorial);
+        console.log("Factorial 4=",memonizeFactorial(4));
+        console.log("Factorial 4=",memonizeFactorial(4));
+
+
+    </script>
+</html>

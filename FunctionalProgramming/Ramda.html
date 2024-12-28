@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+    <script>
+            console.log("R",R.range(1,5));
+            //5 factorial=5*4*3*2*1
+
+            const fact=(n)=>R.range(1,1+n).reduce((a,b)=>a*b,1);
+            console.log("Factorial (n=4) =",fact(4));
+
+            function add(x,y){
+                return x+y;
+            }
+
+            let curruiedAdd=R.curry(add);
+            console.log("CurriedAdd = ",curruiedAdd(1)(2));
+
+            
+    const inc=(x)=>x+1;
+    const double=(x)=>x*2;
+    const divBy2=(x)=>x/2;
+    const newFun=R.pipe(inc,double,divBy2);
+    console.log("New Fun=",newFun(3));
+
+
+    console.log("Identity ", R.identity(3));
+
+            //https://ramdajs.com/
+    </script>
+</html>

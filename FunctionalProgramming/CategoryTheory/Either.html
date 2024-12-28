@@ -1,0 +1,46 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
+    <script>
+        //left => failure
+        //right-> success
+             const Left=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Left.of(value);
+                },
+               
+            })
+        Left.of=Left;
+
+       
+        const Right=value=>({
+                value,
+                valueOf:()=>value,
+                map(fn){
+                    return Right.of(fn(value));
+                },
+               
+            })
+        Right.of=Right;
+            
+        // imparative code
+
+        function div(a,b){
+            if(isNaN(a) || isNaN(b)){
+              //  throw new Error('A or b is Nan') in fanctional programming we dont need to use thro exception
+              return Left.of("A or B is NaN");
+            }
+            else{
+                return Right.of(a/b);
+            }
+
+        }
+
+        const increase=(x)=> x+1;
+            div(10,2)
+                .map(increase)
+                .map(console.log);
+    </script>
+</html>

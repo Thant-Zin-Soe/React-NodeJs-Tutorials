@@ -1,0 +1,23 @@
+<html>
+    <script>
+        let grandParent={
+            x:10,
+        }
+
+        let parent=Object.create(grandParent);
+        parent.y=20;
+        let obj=Object.create(parent);
+        console.log('obj=',obj);
+        console.log('obj.y=',obj.y);
+        console.log('obj.x=',obj.x);
+        console.log('obj.data=',obj.data);// if cannot find all the parents ...it will return 'Undefine'
+
+        //write
+
+        obj.x=100;
+        console.log('obj.x=',obj.x);
+        console.log('obj.grandParent=',obj.grandParent);
+        grandParent.x=69;
+        console.log('grandParent.x after wite new data=',grandParent.x);
+    </script>
+</html>

@@ -1,0 +1,26 @@
+<html></html>
+    <script>
+       let arr=[1,2,10,3,4,5,6,7,8,9,10];
+       let index= arr.indexOf(7);
+       console.log("index of 7 is =",index);
+       index= arr.indexOf(100);
+       console.log("index of 100 is =",index);// if there is no data retuen -1
+
+        index= arr.indexOf(10);
+       console.log("index of 10 is =",index);
+
+       index= arr.lastIndexOf(10);
+       console.log("index of 10 is =",index);
+
+       index= arr.indexOf(10,4);// search from index 4 so the last value index of 10 will return
+       console.log("index of 10 is =",index);
+
+       index= arr.indexOf(10);
+       while(index!=-1){
+        console.log("Index of 10 =",index);
+        index=arr.indexOf(10,index+1);
+       }
+     
+
+    </script>
+</html>

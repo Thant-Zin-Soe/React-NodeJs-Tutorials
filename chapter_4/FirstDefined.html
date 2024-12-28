@@ -1,0 +1,26 @@
+<html>
+    <script>
+       let a=10;
+       let data;
+       data=(a==undefined && null)? 'a': 100;
+       console.log("data=",data);
+
+       let setting=0;  // result didnt output 0  because it is bug
+       setting=setting || 200; // if we want to get if the value is 0 we use ??  (means undefined or null  ) 
+       console.log("setting=",setting);
+
+       function plugin(param){
+        let config={
+            color: 'red',
+            width:200,
+        };
+        console.log("params=",param);
+       }
+
+       plugin({
+        color:'green',
+        width:30,
+       });
+      
+    </script>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <script>
+        let arr=[1,2,3,4,5];
+        console.log("ParseInt of 100 in binary is =", parseInt('100',2));//return in binary value in deximal 
+        //parseInt accept 2 parameter if give only 1 parameter it will return NAN(not a numnbet)
+        let result=arr.map(unary(parseInt));
+        console.log("Result=",result);// return Nan
+
+        function unary(fn){
+            return function(...args){
+                return fn(args[0])
+;            }
+        }
+   </script>
+</html>

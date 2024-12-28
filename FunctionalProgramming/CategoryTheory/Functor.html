@@ -1,0 +1,31 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+    <script>
+        let arr=['apple','banana','orange'];
+        let arr2=arr.map(item=>item.toUpperCase());
+        console.log("Arr =",arr," Arr2 =",arr2);
+
+        const Container=value=>({
+            value,
+            valueOf:()=>value,
+            map:(fn)=>Container(fn(value)),
+        })
+        Container.of=Container;
+
+        const double =(x)=>x*2;
+        const inc=(x)=>x+1;
+
+        let one=Container.of(1);
+        let result=one.map(inc).map(double);
+        console.log("One ",one.valueOf());
+        console.log("Rsult=",result.valueOf());
+
+        //law1
+        console.log("One ",one.map(R.identity).valueOf()===1);
+
+        //law 2
+        const newFun=R.pine(inc,double);
+        result =one.map(newFun);
+        console.log("Rsult=",result.valueOf());
+    </script>
+</html>

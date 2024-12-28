@@ -1,0 +1,26 @@
+<html>
+    <script>
+        function process(){
+
+            console.log("Process invoked");
+        }
+
+        function order(){
+            console.log("Order invoked");
+        }
+
+        function logger(fn){
+            return function(...args){
+                console.log(fn.name,"Started",new Date());
+                let ret=fn(...args);
+                console.log(fn.name,"Ended",new Date());
+                return ret;
+            }
+        }
+        process=logger(process);
+        process();
+
+        order=logger(order);
+        order();
+    </script>
+</html>

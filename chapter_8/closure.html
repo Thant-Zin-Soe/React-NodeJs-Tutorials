@@ -1,0 +1,47 @@
+<html>
+    <script>
+        function getUniqueId()
+        {
+            let id=0;
+            return function inner(){
+                return id++;
+            }
+        }
+        let ID=getUniqueId();
+        console.log("ID first =",ID());
+        console.log("ID second =",ID());
+        console.log("ID third =",ID());
+
+        //using inner function(eg: id is still alive by dynamic value )
+    
+        let stack={
+            item:[],
+            push(){
+                
+            },
+            pop(){
+
+            }
+        }
+        stack.item=[100,200];// can do but no with stack
+        function Stack(){
+            let items=[];
+            function push(item){
+                items.push(item);
+            }
+            function pop(){
+                return items.pop();
+            }
+            return{
+                 push,
+                 pop,
+            }
+        }
+        let stack1=Stack();
+        stack1.push(100);
+        stack1.push(200);
+        console.log('stack1=',stack1);
+        stack1.items=[];
+        console.log('stack1.pop=',stack1.pop());
+    </script>
+</html>

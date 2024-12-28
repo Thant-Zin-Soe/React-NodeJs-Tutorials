@@ -1,0 +1,19 @@
+<html>
+    <script>
+        let arr=[10,20,30];
+        let arr2= arr.map(item=>[item,item*item]);
+        console.log("Arr2=",arr2);// new array return
+
+        arr2= arr.flatMap(item=>[item,item*item]);// new array return
+        console.log("Arr2 faltMap=",arr2);
+
+        let arr3=[[1,2,3],[4,5,6,7]]//[1,2,3,4,5,6,7]  new array retuen
+
+        console.log(arr3.flat());
+        
+
+        let arr4=arr2.concat(arr3.flat());
+        console.log("Arr2=".arr2);
+        console.log("Arr4=",arr4);
+    </script>
+</html>

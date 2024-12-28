@@ -1,0 +1,26 @@
+<html>
+    <script>
+        let arr=[1,2,3,4,5,6,1,2,3,4,5,2,3,4,5];
+        console.log("Arr=",arr);
+        let total=arr.reduce((a,b)=>{
+            console.log("A=",a,"B=",b);
+            return a+b;// we can return Min value or searching some value or others and it is powerful
+        });
+        console.log("Total",total);
+        /*
+            how many 1 in the array
+        */
+        let result=arr.reduce((group,item)=>{
+                if(group[item]){
+                    group[item]++
+                }
+                else{
+                    group[item]=1;
+                }
+                return group;
+        },{});
+        console.log("Group",result);
+        //watch-> https://web.facebook.com/thet.khine.587/videos/1051429433233264/?idorvanity=480229344738087
+        //at 46 min
+    </script>
+</html>

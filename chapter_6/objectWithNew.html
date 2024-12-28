@@ -1,0 +1,21 @@
+<html>
+    <script>
+        let date=new Date;
+        console.log("Currnet Date =",date);// Parent of 'Date' is 'Object'
+
+        let info={
+            name:'Thant Zin Soe',
+            age:25,
+            address:'Mandalay',
+        }
+        console.log("Info =",info);// 'Object'  is the parent of all objects.
+
+        let parent={
+             x:100,
+        }
+
+        let obj=Object.create(parent);
+        console.log('obj=',obj);// nothing in obj...but we can access the data from the paren as follow
+        console.log('obj.x=',obj.x);// can access the data from parent... because first search in 'obj' if not found find in parent
+    </script>
+</html>

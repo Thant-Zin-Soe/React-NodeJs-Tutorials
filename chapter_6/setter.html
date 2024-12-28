@@ -1,0 +1,24 @@
+<html>
+    <script>
+        let user={
+            
+            age:25,
+
+            get userAge(){
+                return this.age;
+            },
+
+            set userAge(newAge){
+                if(newAge<=100 && newAge>=18){
+                    this.age=newAge;
+                }
+
+            }
+            
+        };
+        user.userAge=203;
+        console.log("user's age=",user.age);
+
+
+    </script>
+</html>

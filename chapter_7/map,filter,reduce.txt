@@ -1,0 +1,9 @@
+map ->every item ko twr  transform tel ... or loop all the array every item <- this is main
+
+filter -> select
+
+reduce -> zip lot lite tl(multiple item ka nay q ku htae phyit ag reduce lote lite tl)
+	a+b= c
+
+these three are return making new array so  it is not suitable for Lrage Datas Arrays...
+onlu suitable between 50 to 150

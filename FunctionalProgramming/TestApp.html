@@ -1,0 +1,35 @@
+<html>
+    <script>
+        let students=[
+            {
+            name: 'Aung Aung',
+            age:24,
+            sex:"Male"        
+            },
+            {
+                name:"Su Su",
+                age:21,
+                sex:"Female"
+            },
+            {
+                name:"Kyaw Soe",
+                age:22,
+                sex:"Male"
+            },
+
+            {
+                name:"Zar Zar",
+                age:18,
+                sex:"Female"
+            },
+        ];
+
+            console.log("Students List=",students);
+            const isFemale=(students)=>students.sex=="Female";
+            let youngestFStd=students.filter(isFemale).reduce((studentA,studentB)=>{
+                return studentA.age<studentB.age ? studentA :studentB;
+            });
+
+            console.log("Youngest female student =",youngestFStd.name);
+    </script>
+</html>
