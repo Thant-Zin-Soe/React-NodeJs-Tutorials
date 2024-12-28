@@ -19,7 +19,7 @@ Here’s what you’ll find in this repository:
 - 🔨 **Mini-Projects**: Hands-on implementations of key React and Node.js concepts.
 - 🎯 **Code Challenges**: Solutions to practical coding problems and exercises.
 - 🧩 **Best Practices**: Experiments with clean code, optimization, and error handling.
-- 📖 **Notes & Summaries**: Key insights, tips, and tutorials that guided my learning.
+- 📖 **Notes & Summaries**: Key insights, tips, and tutorials that guided my learning .
 
 ---
 
